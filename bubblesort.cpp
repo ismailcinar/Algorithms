@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
+ clock_t start, end;
+     double cpu_time_used;
  swap(int *xp, int *yp)
 {
     int temp = *xp;
@@ -46,6 +49,9 @@ int main()
 	}
     int n = sizeof(arr)/sizeof(arr[0]);
     bubbleSort(arr, n);
+     end = clock();
+     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf(" zaman =%f",cpu_time_used);
     printf("array: \n");
     printArray(arr, n);
     return 0;
